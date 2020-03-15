@@ -27,6 +27,7 @@ public:
 	LinkedList();
 	bool empty();
 	int length();
+	void push_front(int d);
 };
 
 LinkedList::LinkedList(){
@@ -44,4 +45,8 @@ LinkedList::length(){
 	}
 	return ans;
 }
-
+LinkedList::push_front(int d){
+	Node * temp = Head;
+	Head = new[Node(d)];
+	Head->next = temp;
+}
