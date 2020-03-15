@@ -31,6 +31,7 @@ public:
 	void pop_front();
 	void push_back(int d);
 	void pop_back();
+	void clear();
 };
 
 LinkedList::LinkedList(){
@@ -84,4 +85,7 @@ LinkedList::pop_back(){
 		temp->next = nullptr;
 		return;
 	}
+}
+LinkedList::clear(){
+	while(Head!=nullptr)this->pop_back();
 }
