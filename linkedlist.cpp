@@ -28,6 +28,8 @@ public:
 	bool empty();
 	int length();
 	void push_front(int d);
+	void pop_front();
+	void push_back(int d);
 };
 
 LinkedList::LinkedList(){
@@ -50,3 +52,21 @@ LinkedList::push_front(int d){
 	Head = new[Node(d)];
 	Head->next = temp;
 }
+LinkedList::pop_front(){
+	if(LinkedList.Empty())return;
+	Node * temp = Head;
+	Head = Head->next;
+	delete Node;
+	return;
+}
+LinkedList::push_back(int d){
+	Node * current = Head;
+	if(current == nullptr){
+		push_front(d);
+		return;
+	}
+	while(current->next != nullptr)current=current->next;
+	current->next = new(Node(d));
+}
+
+
