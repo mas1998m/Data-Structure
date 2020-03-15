@@ -32,6 +32,8 @@ public:
 	void push_back(int d);
 	void pop_back();
 	void clear();
+	void print_node(Node * Start);
+	void print_all();
 	~LinkedList();
 };
 
@@ -89,6 +91,15 @@ LinkedList::pop_back(){
 }
 LinkedList::clear(){
 	while(Head!=nullptr)this->pop_back();
+}
+LinkedList::print_node(Node * Start){
+	if(Start == nullptr)return;
+	cout << Start->data << " ";
+	print_node(Start->next);
+}
+LinkedList::print_all(){
+	print_node(Head);
+	return;
 }
 LinkedList::~LinkedList(){
 	clear();
