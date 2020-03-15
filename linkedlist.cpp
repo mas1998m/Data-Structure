@@ -20,3 +20,13 @@ public:
 	friend LinkedList;
 };
 
+class LinkedList{
+private:
+	Node * Head;
+public:
+	LinkedList();
+};
+
+LinkedList::LinkedList(){
+	Head = nullptr;
+}
