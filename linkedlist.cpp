@@ -26,6 +26,7 @@ private:
 public:
 	LinkedList();
 	bool empty();
+	int length();
 };
 
 LinkedList::LinkedList(){
@@ -34,5 +35,13 @@ LinkedList::LinkedList(){
 LinkedList::empty(){
 	return (Head == nullptr)
 }
-
+LinkedList::length(){
+	int ans=0;
+	Node * ptr=Head;
+	while(ptr!=nullptr){
+		ans++;
+		ptr=ptr->next;
+	}
+	return ans;
+}
 
