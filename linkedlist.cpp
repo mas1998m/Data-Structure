@@ -25,8 +25,14 @@ private:
 	Node * Head;
 public:
 	LinkedList();
+	bool empty();
 };
 
 LinkedList::LinkedList(){
 	Head = nullptr;
 }
+LinkedList::empty(){
+	return (Head == nullptr)
+}
+
+
