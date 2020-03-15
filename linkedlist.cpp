@@ -30,6 +30,7 @@ public:
 	void push_front(int d);
 	void pop_front();
 	void push_back(int d);
+	void pop_back();
 };
 
 LinkedList::LinkedList(){
@@ -68,5 +69,19 @@ LinkedList::push_back(int d){
 	while(current->next != nullptr)current=current->next;
 	current->next = new(Node(d));
 }
-
-
+LinkedList::pop_back(){
+	if(this->empty())return;
+	Node * temp = Head;
+	if(Head->next==nullptr){
+		delete Head;
+		Head = nullptr
+	}
+	else {
+		while(temp->next->next != nullptr){
+			temp = temp->next;
+		}
+		delete temp->next;
+		temp->next = nullptr;
+		return;
+	}
+}
