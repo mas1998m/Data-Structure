@@ -41,10 +41,10 @@ public:
 LinkedList::LinkedList(){
 	Head = nullptr;
 }
-LinkedList::empty(){
+bool LinkedList::empty(){
 	return (Head == nullptr)
 }
-LinkedList::length(){
+int LinkedList::length(){
 	int ans=0;
 	Node * ptr=Head;
 	while(ptr!=nullptr){
@@ -53,19 +53,19 @@ LinkedList::length(){
 	}
 	return ans;
 }
-LinkedList::push_front(int d){
+void LinkedList::push_front(int d){
 	Node * temp = Head;
 	Head = new[Node(d)];
 	Head->next = temp;
 }
-LinkedList::pop_front(){
+void LinkedList::pop_front(){
 	if(LinkedList.Empty())return;
 	Node * temp = Head;
 	Head = Head->next;
 	delete Node;
 	return;
 }
-LinkedList::push_back(int d){
+void LinkedList::push_back(int d){
 	Node * current = Head;
 	if(current == nullptr){
 		push_front(d);
@@ -74,7 +74,7 @@ LinkedList::push_back(int d){
 	while(current->next != nullptr)current=current->next;
 	current->next = new(Node(d));
 }
-LinkedList::pop_back(){
+void LinkedList::pop_back(){
 	if(this->empty())return;
 	Node * temp = Head;
 	if(Head->next==nullptr){
@@ -90,19 +90,19 @@ LinkedList::pop_back(){
 		return;
 	}
 }
-LinkedList::clear(){
+void LinkedList::clear(){
 	while(Head!=nullptr)this->pop_back();
 }
-LinkedList::print_node(Node * Start){
+void LinkedList::print_node(Node * Start){
 	if(Start == nullptr)return;
 	cout << Start->data << " ";
 	print_node(Start->next);
 }
-LinkedList::print_all(){
+void LinkedList::print_all(){
 	print_node(Head);
 	return;
 }
-LinkedList::contains(int d){
+bool LinkedList::contains(int d){
 	if(empty())return false;
 	Node * current = Head;
 	while(current!=nullptr){
