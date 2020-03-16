@@ -34,6 +34,7 @@ public:
 	void clear();
 	void print_node(Node * Start);
 	void print_all();
+	bool contains(int d);
 	~LinkedList();
 };
 
@@ -100,6 +101,15 @@ LinkedList::print_node(Node * Start){
 LinkedList::print_all(){
 	print_node(Head);
 	return;
+}
+LinkedList::contains(int d){
+	if(empty())return false;
+	Node * current = Head;
+	while(current!=nullptr){
+		if(current->data==d)return true;
+		current = current->next;
+	}
+	return false;
 }
 LinkedList::~LinkedList(){
 	clear();
